@@ -1,0 +1,26 @@
+codigo usado no postgresSQL
+
+CREATE TABLE base_usuario (
+    id_usuario INT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(100),
+    tipo_usuario VARCHAR(100),
+    data_criacao TIMESTAMP
+);
+
+CREATE TABLE base_preco (
+    id_preco INT PRIMARY KEY,
+    item VARCHAR(100),
+    categoria VARCHAR(50),
+    valor_unitario DECIMAL(10,2),
+    data_atualizacao DATE,
+    criado_por INT REFERENCES base_usuario(id_usuario)
+);
+
+CREATE TABLE orcamentos_salvos (
+    id_orcamento INT PRIMARY KEY,
+    data_criacao INT,
+    descricao TEXT,
+    valor_total DECIMAL(12,2),
+    status VARCHAR(20)
+);
